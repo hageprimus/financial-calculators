@@ -2,6 +2,7 @@ package com.pluralsight;
 import java.util.Scanner;
 
 public class MortgageCalculator {
+    private static final int MONTHS_IN_YEAR = 12;
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
 
@@ -11,8 +12,8 @@ public class MortgageCalculator {
         double loanLengthYears = getLoanLength(s);
 
         //Convert loan length and interest rate to months
-        double loanLengthMonths = 12 * loanLengthYears;
-        double interestRateMonths = interestRateYears / 12;
+        double loanLengthMonths =  loanLengthYears * MONTHS_IN_YEAR;
+        double interestRateMonths = interestRateYears / MONTHS_IN_YEAR;
 
         //Calculate monthly payment
         double monthlyPayment = calcMonthlyPayment(principal, interestRateMonths, loanLengthMonths);
